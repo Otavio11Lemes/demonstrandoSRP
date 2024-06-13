@@ -1,0 +1,40 @@
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def set_width(self, width):
+        self.width = width
+    
+    def set_height(self, height):
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+
+class Square(Rectangle):
+    def __init__(self, size):
+        super().__init__(size, size)
+    
+    def set_size(self, size):
+        self.set_width(size)
+        self.set_height(size)
+
+# Função que calcula a soma das áreas de várias figuras
+def sum_of_areas(figures):
+    total_area = 0
+    for figure in figures:
+        total_area += figure.area()
+    return total_area
+
+# Teste inicial
+rectangle = Rectangle(3, 4)
+square = Square(5)
+figures = [rectangle, square]
+print("Soma das áreas (antes):", sum_of_areas(figures))
+
+# Modificando o tamanho do quadrado
+square.set_size(6)
+
+# Teste após a modificação
+print("Soma das áreas (depois):", sum_of_areas(figures))
